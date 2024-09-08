@@ -8,5 +8,5 @@ class Solution:
             else:
                 mapp[i] += 1
         
-        res = list(sorted(mapp.items(), key=lambda x: x[1], reverse = True))
+        res = list(sorted(mapp.items(), key = lambda x: x[1], reverse = True))
         return res[0][0]
