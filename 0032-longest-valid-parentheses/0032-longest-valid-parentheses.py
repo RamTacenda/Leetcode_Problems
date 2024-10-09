@@ -12,5 +12,5 @@ class Solution:
                     stack.append(i)
                 else:
                     maxlen = max(maxlen, i-stack[-1])
-        
+
         return maxlen
