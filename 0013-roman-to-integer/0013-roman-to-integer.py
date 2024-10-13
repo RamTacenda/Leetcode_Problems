@@ -16,5 +16,5 @@ class Solution:
             else:
                 res += mapp[a]
 
-        res += mapp[b]
+        res += mapp[s[-1]]
         return res
