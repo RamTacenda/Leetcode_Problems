@@ -5,11 +5,10 @@ class Solution:
             minlen = min(len(char), minlen)
 
         i = 0
-        while(i < minlen):
-            for s in strs:
+        for i in range(0, minlen):
+            for s in strs[1:]:
                 if(s[i] != strs[0][i]):
                     return s[:i]
-            i += 1
         
         return strs[0][:i]
         
