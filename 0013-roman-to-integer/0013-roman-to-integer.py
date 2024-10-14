@@ -10,11 +10,10 @@ class Solution:
             "M" : 1000
         }
         res = 0
-        for a, b in zip(s, s[1:]):
-            if(mapp[a] < mapp[b]):
-                res -= mapp[a]
+        for i in range(0, len(s)-1):
+            if(i != 0 and mapp[s[i]] < mapp[s[i+1]]):
+                res -= mapp[s[i]]
             else:
-                res += mapp[a]
-
+                res += mapp[s[i]]
         res += mapp[s[-1]]
         return res
