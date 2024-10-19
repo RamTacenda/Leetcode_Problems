@@ -1,23 +1,23 @@
 class Solution:
     def isValid(self, s: str) -> bool:
-        openls = "{[("
-        closels = "}])"
+        openls = "([{<"
+        closels = ")]}>"
         stack = []
-        c = 0
-        if(len(s) <= 1 or s[0] in closels):
-            return False
-        for i in s:
-            if(i in openls):
-                stack.append(i)
-            elif(i in closels):
-                pos = closels.index(i)
-                if(len(stack) > 0 and openls[pos] == stack[-1]):
+        check = 0
+
+        if(s[0] in closels): return False
+
+        for i in range(0, len(s)):
+            if(s[i] in openls):
+                stack.append(s[i])
+            else:
+                pos = closels.index(s[i])
+                if(len(stack) > 0 and stack[-1] == openls[pos]):
                     stack.pop()
-                # elif(len(stack) > 0 and openls[pos] != stack[-1]):
                 else:
-                    c += 1
-        
-        if(len(stack) == 0 and c == 0):
+                    check += 1
+
+        if(not stack and check == 0):
             return True
         else:
             return False
