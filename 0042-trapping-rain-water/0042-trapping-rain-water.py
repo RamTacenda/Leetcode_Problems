@@ -10,9 +10,9 @@ class Solution:
                     maxl = arr[l]
                 else:
                     ans += maxl - arr[l]
-                
+
                 l += 1
-            
+
             else:
                 if(arr[r] > maxr):
                     maxr = arr[r]
@@ -20,5 +20,5 @@ class Solution:
                     ans += maxr - arr[r]
 
                 r -= 1
-        
+            
         return ans
