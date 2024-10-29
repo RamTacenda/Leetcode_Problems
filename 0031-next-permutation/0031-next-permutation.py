@@ -18,4 +18,7 @@ class Solution:
                 nums[idx], nums[i] = nums[i], nums[idx]
                 break
 
-        nums[idx+1: ] = nums[idx+1: ][::-1]
+        # nums[idx+1: ] = nums[idx+1: ][::-1]
+        rev = nums[idx+1:][::-1]
+        for i in range(0, len(rev)):
+            nums[i+idx+1] = rev[i]
