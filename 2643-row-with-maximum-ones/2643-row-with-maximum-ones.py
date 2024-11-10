@@ -1,11 +1,11 @@
 class Solution:
     def rowAndMaximumOnes(self, mat: List[List[int]]) -> List[int]:
-        ans = list()
+        idx = 0
         maxx = float('-inf')
         for row in range(0, len(mat)):
-            c = mat[row].count(1)
-            if(c > maxx):
-                maxx = c
-                ans.append([row, c])
+            summ = sum(mat[row])
+            if(summ > maxx):
+                maxx = summ
+                idx = row
 
-        return ans[-1]
+        return [idx, maxx]
