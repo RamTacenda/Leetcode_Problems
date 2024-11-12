@@ -6,7 +6,7 @@ class Solution:
                 fact *= i
             nums.append(i)
 
-        k = k-1
+        k -= 1
         ans = ""
 
         while(True):
@@ -14,7 +14,7 @@ class Solution:
             nums.pop(k//fact)
             if(len(nums) == 0):
                 break
-            
+
             k = k % fact
             fact = fact // len(nums)
 
