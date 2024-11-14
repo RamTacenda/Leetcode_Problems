@@ -3,14 +3,15 @@ class Solution:
         if(x == 1): return 1
 
         low = 1
-        high = x
+        high = x//2
         ans = 0
+
         while(low <= high):
-            mid = (low+high) // 2
-            if(mid * mid <= x):
+            mid = (low + high)//2
+            if(mid*mid > x):
+                high = mid -1
+            elif(mid*mid <= x):
                 ans = mid
-                low = mid+1
-            else:
-                high = mid-1
+                low =  mid + 1
 
         return ans
