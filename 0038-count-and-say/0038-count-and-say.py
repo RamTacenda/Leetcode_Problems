@@ -3,7 +3,7 @@ class Solution:
         if(n == 1): return "1"
         if(n == 2): return "11"
         s = "11"
-        
+
         for i in range(3, n+1):
             t = ""
             s += "&"
@@ -14,7 +14,7 @@ class Solution:
                     t += str(c)
                     t += s[j-1]
                     c = 1
-
+                
                 else:
                     c += 1
 
