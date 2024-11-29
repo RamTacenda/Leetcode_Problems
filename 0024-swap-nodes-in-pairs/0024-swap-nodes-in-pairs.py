@@ -9,9 +9,9 @@ class Solution:
         prev, curr = dummy, head
 
         while curr and curr.next:
-            # saving pointers
-            nxtPair = curr.next.next
+            # saving the pointers
             second = curr.next
+            nxtPair = curr.next.next
 
             # reversing the pairs
             second.next = curr
