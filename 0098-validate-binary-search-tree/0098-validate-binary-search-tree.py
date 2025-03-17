@@ -9,9 +9,10 @@ class Solution:
         def validate(root, min_val, max_val):
             if not root:
                 return True
-            if(not min_val < root.val < max_val):
+            if not min_val < root.val < max_val:
                 return False
-            return validate(root.left, min_val, root.val) and\
+            
+            return validate(root.left, min_val, root.val) and \
             validate(root.right, root.val, max_val)
         
         return validate(root, float('-inf'), float('inf'))
