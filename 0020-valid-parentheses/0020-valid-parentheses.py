@@ -17,7 +17,7 @@ class Solution:
                 else:
                     check += 1
 
-        if(not stack):
+        if(not stack and check == 0):
             return True
         else:
             return False
