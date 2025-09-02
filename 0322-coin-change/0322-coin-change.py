@@ -1,27 +1,25 @@
 class Solution:
     def coinChange(self, coins: List[int], amount: int) -> int:
-        if(amount == 0):
-            return 0
 
-        res = float('inf')    
-        check = False    
-        def combSum(idx, ds, target):
-            nonlocal res
-            nonlocal check
-            if(idx == len(coins)):
-                if(target == 0):
-                    check = True
-                    res = min(res, len(ds))
-                return
+        coins.sort()
+        memo = {0:0}
 
-            if(coins[idx] <= target):
-                ds.append(coins[idx])
-                combSum(idx, ds, (target-coins[idx]))
-                ds.pop()
-
-            combSum(idx+1, ds, target)
-
-        combSum(0, [], amount)
-        if not check:
+        def min_coins(amt):
+            if amt in memo:
+                return memo[amt]
+            
+            minn = float('inf')
+            for coin in coins:
+                diff = amt-coin
+                if diff < 0:
+                    break
+                
+                minn = min(minn, 1 + min_coins(diff))
+            
+            memo[amt] = minn
+            return minn
+        
+        res = min_coins(amount)
+        if(res == float('inf')):
             return -1
         return res
