@@ -1,19 +1,12 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-
-        if not s:
-            return 0
-        
-        arr = []
-        maxx = float('-inf')
+        hashset, maximum = set(), 0
         for i in range(0, len(s)):
-            for j in range(i, len(s)):
-                arr.append(s[j])
-                if(len(arr) == len(set(arr))):
-                    if(len(arr) > maxx):
-                        maxx = len(arr)
-                else:
-                    break
-            arr.clear()
-
-        return maxx
+            j = i
+            while(j < len(s) and s[j] not in hashset):
+                hashset.add(s[j])
+                j += 1
+            maximum = max(maximum, j-i)
+            hashset.clear()
+        
+        return maximum
