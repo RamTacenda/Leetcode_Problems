@@ -1,11 +1,16 @@
 class Solution:
     def getSum(self, a: int, b: int) -> int:
-        MAX = 0x7FFFFFFF 
-        MIN = 0x80000000  
-        MASK = 0xFFFFFFFF
+        check = False
+        if(a < 0 and b >= 0):
+            check = True
+            a, b = 0-a, 0-b
+
         while(b != 0):
             temp = (a & b) << 1
-            a = (a ^ b) & MASK
-            b = (temp) & MASK
+            a = (a ^ b)
+            b = (temp)
 
-        return a if a <= MAX else ~(a ^ MASK)
+        if check:
+            return 0-a
+        
+        return a
